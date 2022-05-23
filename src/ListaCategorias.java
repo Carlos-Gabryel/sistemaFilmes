@@ -1,3 +1,5 @@
+import org.w3c.dom.Node;
+
 public class ListaCategorias {
     
     private NodeCategoria primeiro;
@@ -34,17 +36,25 @@ public class ListaCategorias {
         NodeCategoria encontrado = buscaMelhorada(novoNode.getInfo().getDescricao());
         if (encontrado == null) {
             if (this.isEmpty() == true) { // inserção na lista vazia
+                novoNode.setAnt(novoNode);
+                novoNode.setProx(novoNode);
                 this.primeiro = novoNode;
                 this.ultimo = novoNode;
                 this.qtd++;
             } else if (novoNode.getInfo().compareTo(this.primeiro.getInfo()) < 0) { // inserção antes do primeiro
-                novoNode.setProx(this.primeiro);
-                this.primeiro.setAnt(novoNode);
+                NodeCategoria prox = this.primeiro;
+                novoNode.setAnt(this.ultimo);
+                this.ultimo.setProx(novoNode);
+                novoNode.setProx(prox);
+                prox.setAnt(novoNode);
                 this.primeiro = novoNode;
                 this.qtd++;
             } else if (novoNode.getInfo().compareTo(this.ultimo.getInfo()) > 0) { // inserção após o último
-                this.ultimo.setProx(novoNode);
-                novoNode.setAnt(this.ultimo);
+                NodeCategoria ant = this.ultimo;
+                novoNode.setProx(this.primeiro);
+                this.primeiro.setAnt(novoNode);
+                novoNode.setAnt(ant);
+                ant.setProx(novoNode);
                 this.ultimo = novoNode;
                 this.qtd++;
             } else { // inserção no meio - depois do primeiro e antes do último

@@ -11,10 +11,6 @@ public class Categoria implements Comparable <Categoria> {
         return this.descricao;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public ListaFilmes getLista() {
         return this.lista;
     }
@@ -30,6 +26,9 @@ public class Categoria implements Comparable <Categoria> {
 
     public void addNovoFilme(Filme novoFilme){
         this.lista.inserirOrdenadoCrescente(new NodeFilme(novoFilme));
+    }
+    public void removerFilmeEspecifico(String titulo){
+     this.lista.remover(titulo);
     }
 
     @Override

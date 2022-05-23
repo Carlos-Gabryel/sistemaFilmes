@@ -2,9 +2,9 @@ import java.util.Scanner;
 
 import javax.print.attribute.SupportedValuesAttribute;
 
-public class addFilme {
+public class AddFilme {
 
-    public static void AddFilme(ListaCategorias listaCategorias) {
+    public static void addFilme(ListaCategorias listaCategorias) {
         Scanner input = new Scanner(System.in);
 
         Categoria categoria = validarCategoria(listaCategorias);
