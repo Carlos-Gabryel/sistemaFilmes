@@ -1,13 +1,14 @@
 import org.w3c.dom.Node;
 
 public class ListaCategorias {
-    
+
     private NodeCategoria primeiro;
     private int qtd;
     private NodeCategoria ultimo;
-    // métodos da classe (inserção ordenada na lista, remoção na lista, busca na lista, exibição da lista)
+    // métodos da classe (inserção ordenada na lista, remoção na lista, busca na
+    // lista, exibição da lista)
 
-    public NodeCategoria getPrimeiro(){
+    public NodeCategoria getPrimeiro() {
         return primeiro;
     }
 
@@ -74,6 +75,40 @@ public class ListaCategorias {
                 aux.setAnt(novoNode);
                 this.qtd++;
                 System.out.println("Filme inserido com sucesso!!");
+            }
+        }
+    }
+
+    public void remover(String titulo) {
+        if (this.isEmpty()) {
+            System.out.println("Lista vazia!");
+        } else {
+            NodeCategoria buscado = buscaMelhorada(titulo);
+            if (buscado != null) {
+                if (this.qtd == 1) {
+                    this.primeiro = null;
+                    this.ultimo = null;
+                    this.qtd = 0;
+                } else if (buscado == this.primeiro) {
+                    this.primeiro = this.primeiro.getProx();
+                    this.primeiro.setAnt(this.ultimo);
+                    this.ultimo.setProx(this.primeiro);
+                    this.qtd--;
+                } else if (buscado == this.ultimo) {
+                    this.ultimo = this.ultimo.getAnt();
+                    this.ultimo.setProx(this.primeiro);
+                    this.primeiro.setAnt(this.ultimo);
+                    this.qtd--;
+                } else {
+                    NodeCategoria aux = this.primeiro;
+                    while (aux.getProx() != buscado) {
+                        aux = aux.getProx();
+                    }
+                    NodeCategoria prox = buscado.getProx();
+                    aux.setProx(prox);
+                    prox.setAnt(aux);
+                    this.qtd--;
+                }
             }
         }
     }

@@ -48,21 +48,21 @@ public class AddFilme {
 
     }
 
-    public static boolean validarTitulo(String titulo, ListaCategorias listaCategorias){
+    public static boolean validarTitulo(String titulo, ListaCategorias listaCategorias) {
 
-        if(listaCategorias.isEmpty()){
+        if (listaCategorias.isEmpty()) {
             System.out.println("Lista de categorias vazia.");
             return false;
         }
         NodeCategoria aux = listaCategorias.getPrimeiro();
 
-        do{
+        do {
             NodeFilme buscado = aux.getInfo().getLista().buscaMelhorada(titulo);
-            if(buscado != null){
+            if (buscado != null) {
                 return false;
             }
             aux = aux.getProx();
-        }while(aux != listaCategorias.getPrimeiro());
+        } while (aux != listaCategorias.getPrimeiro());
         return true;
     }
 
@@ -70,4 +70,7 @@ public class AddFilme {
         return anoLancamento >= 1895 && anoLancamento <= 2050;
     }
 
+    public static void addDiretamente(NodeCategoria nodeCategoria, Filme filme) {
+        nodeCategoria.getInfo().addNovoFilme(filme);
+    }
 }

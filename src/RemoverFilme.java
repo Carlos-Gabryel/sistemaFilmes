@@ -15,7 +15,13 @@ public class RemoverFilme {
                 return;
             }
             buscado.getInfo().removerFilmeEspecifico(titulo);
-            System.out.println("Filme removido com sucesso!");
+            if (buscado.getInfo().getLista().isEmpty()) {
+                System.out.println("Categoria irá ficar vazia. Filme e categoria removidos com sucesso!");
+                listaCategorias.remover(titulo);
+            } else {
+                System.out.println("Filme removido com sucesso!");
+            }
+
         }
     }
 
@@ -34,6 +40,10 @@ public class RemoverFilme {
             aux = aux.getProx();
         } while (aux != listaCategorias.getPrimeiro());
         return null;
+    }
+
+    public static void removerDiretamente(NodeCategoria nodeCategoria, Filme filme) {
+        nodeCategoria.getInfo().removerDiretamente(filme);
     }
 
 }

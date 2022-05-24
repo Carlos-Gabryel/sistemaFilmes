@@ -5,9 +5,9 @@ public class ExibirTudo {
             NodeCategoria auxCategoria = listaCategorias.getPrimeiro();
             do {
                 NodeFilme listaPrimeiro = auxCategoria
-                    .getInfo()
-                    .getLista()
-                    .getPrimeiro();
+                        .getInfo()
+                        .getLista()
+                        .getPrimeiro();
                 NodeFilme auxFilme = listaPrimeiro;
                 do {
                     System.out.println(auxFilme.getInfo());

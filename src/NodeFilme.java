@@ -1,10 +1,10 @@
 public class NodeFilme {
-    
+
     private NodeFilme ant;
     private Filme info;
     private NodeFilme prox;
-    
-    public NodeFilme(Filme info){
+
+    public NodeFilme(Filme info) {
         this.info = info;
     }
 
@@ -37,5 +37,5 @@ public class NodeFilme {
     public void setProx(NodeFilme prox) {
         this.prox = prox;
     }
-    
-    }
+
+}

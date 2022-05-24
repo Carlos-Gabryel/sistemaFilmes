@@ -6,7 +6,7 @@ public class ListaFilmes {
 
     // métodos da classe (inserção ordenada na lista, remoção na lista, busca na
     // lista, exibição da lista)
-    public NodeFilme getPrimeiro(){
+    public NodeFilme getPrimeiro() {
         return primeiro;
     }
 
@@ -76,29 +76,30 @@ public class ListaFilmes {
             }
         }
     }
-    public void remover(String titulo){
-        if(this.isEmpty()){
+
+    public void remover(String titulo) {
+        if (this.isEmpty()) {
             System.out.println("Lista vazia!");
-        }else{
+        } else {
             NodeFilme buscado = buscaMelhorada(titulo);
-            if(buscado != null){
-                if(this.qtd == 1){
+            if (buscado != null) {
+                if (this.qtd == 1) {
                     this.primeiro = null;
                     this.ultimo = null;
                     this.qtd = 0;
-                }else if(buscado == this.primeiro){
+                } else if (buscado == this.primeiro) {
                     this.primeiro = this.primeiro.getProx();
                     this.primeiro.setAnt(this.ultimo);
                     this.ultimo.setProx(this.primeiro);
                     this.qtd--;
-                }else if(buscado == this.ultimo){
+                } else if (buscado == this.ultimo) {
                     this.ultimo = this.ultimo.getAnt();
                     this.ultimo.setProx(this.primeiro);
                     this.primeiro.setAnt(this.ultimo);
                     this.qtd--;
-                }else{
+                } else {
                     NodeFilme aux = this.primeiro;
-                    while(aux.getProx() != buscado){
+                    while (aux.getProx() != buscado) {
                         aux = aux.getProx();
                     }
                     NodeFilme prox = buscado.getProx();

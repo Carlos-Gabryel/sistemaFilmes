@@ -16,10 +16,10 @@ public class App {
                 case 0 -> System.out.println("\nAplicação encerrada.");
                 case 1 -> AddFilme.addFilme(categorias);
                 case 2 -> RemoverFilme.removerFilme(categorias);
-                // case 3 -> ;
-                // case 4 -> ;
+                case 3 -> ExibirFilme.exibirFilme(categorias);
+                case 4 -> EditarFilme.editarFilme(categorias);
                 case 5 -> ExibirTudo.exibirTudo(categorias);
-                // case 6 -> ;
+                case 6 -> ExibirCategoria.mostrarCategoria(categorias);
                 default -> System.out.println("\nOpção inválida.\n");
             }
         }

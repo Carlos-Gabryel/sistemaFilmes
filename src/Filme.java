@@ -1,5 +1,5 @@
-public class Filme implements Comparable <Filme> {
-    
+public class Filme implements Comparable<Filme> {
+
     private String titulo; // exemplo: “O Rei Leão”
     private String genero; // exemplo: “Musical infantil”
     private String classificacao; // exemplo: “Livre”
@@ -28,11 +28,11 @@ public class Filme implements Comparable <Filme> {
         this.genero = genero;
     }
 
-    public String getClassificação() {
+    public String getClassificacao() {
         return this.classificacao;
     }
 
-    public void setClassificação(String classificacao) {
+    public void setClassificacao(String classificacao) {
         this.classificacao = classificacao;
     }
 
@@ -46,18 +46,18 @@ public class Filme implements Comparable <Filme> {
 
     @Override
     public int compareTo(Filme filme) {
-        
+
         return this.titulo.compareTo(filme.titulo);
     }
 
     @Override
     public String toString() {
         return "{" +
-            " titulo='" + getTitulo() + "'" +
-            ", genero='" + getGenero() + "'" +
-            ", classificação='" + getClassificação() + "'" +
-            ", anoLancamento='" + getAno() + "'" +
-            "}";
+                " titulo='" + getTitulo() + "'" +
+                ", genero='" + getGenero() + "'" +
+                ", classificação='" + getClassificacao() + "'" +
+                ", anoLancamento='" + getAno() + "'" +
+                "}";
     }
-    
-    }
+
+}
